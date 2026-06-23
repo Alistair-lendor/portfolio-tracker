@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<title>投资 · Alistair</title>
+<title>Portfolio · 2026.06.23</title>
 <style>
 @font-face{font-family:'Geist';src:url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font/geist-sans/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'Geist Mono';src:url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font/geist-mono/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
@@ -48,13 +48,14 @@ body{
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
 a{color:inherit;text-decoration:none}
 
+/* ── Header ── */
 .hdr{display:flex;align-items:baseline;justify-content:space-between;padding:28px 0 20px}
 .hdr-l{font-size:1.5rem;font-weight:600;letter-spacing:-0.96px;transition:opacity .12s}
 .hdr-l:hover{opacity:.5}
 .hdr-r{font-size:.82rem;font-weight:400;color:var(--fg3);font-family:var(--fm)}
 
-/* ── Stats grid ── */
-.sg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+/* ── Stats Grid ── */
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
 .sci{padding:16px;border-radius:8px;box-shadow:var(--shadow-card)}
 .sci-l{font-size:.72rem;color:var(--fg3);margin-bottom:4px;letter-spacing:-0.02em}
 .sci-v{font-size:1.35rem;font-weight:600;font-family:var(--fm);letter-spacing:-0.64px}
@@ -65,7 +66,7 @@ a{color:inherit;text-decoration:none}
 .sc{padding:20px 0}
 .sc-hd{font-size:.82rem;font-weight:500;color:var(--fg3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px}
 
-/* ── Analysis block ── */
+/* ── Analysis Block ── */
 .ab{padding:16px;border-radius:8px;box-shadow:var(--shadow-card);margin-bottom:16px}
 .ab-h{font-size:1rem;font-weight:600;letter-spacing:-0.48px;margin-bottom:8px}
 .ab-p{font-size:.82rem;color:var(--fg2);line-height:1.6;letter-spacing:-0.02em;margin-bottom:6px}
@@ -82,33 +83,57 @@ a{color:inherit;text-decoration:none}
 .etf-m{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;font-size:.72rem;color:var(--fg3);font-family:var(--fm)}
 .etf-m div{padding:6px 8px;border-radius:4px;background:var(--surface)}
 
-/* ── Tip / CTA ── */
+/* ── Tip ── */
 .tip{padding:16px;border-radius:8px;box-shadow:var(--shadow-border);margin-bottom:16px;
   border-left:3px solid var(--fg);font-size:.82rem;color:var(--fg2);line-height:1.6;letter-spacing:-0.02em}
 
-/* ── Holdings table ── */
+/* ── Holdings Table ── */
 .tbl{width:100%;border-collapse:collapse;font-size:.82rem}
 .tbl th{padding:8px 6px;text-align:left;font-weight:500;color:var(--fg4);border-bottom:1px solid var(--line);letter-spacing:-0.02em;font-family:var(--fm)}
 .tbl td{padding:10px 6px;border-bottom:1px solid var(--line);font-family:var(--fm);letter-spacing:-0.02em}
 .tbl tr:last-child td{border-bottom:none}
 
+/* ── Footer ── */
 .ft{text-align:center;padding:40px 0 48px;font-size:.72rem;color:var(--fg4)}
 .ft a{color:var(--fg3);transition:opacity .12s}
 .ft a:hover{opacity:.5}
+
+@media(max-width:520px){
+  body{padding:0 16px}
+  .hdr-l{font-size:1.35rem}
+  .sg{gap:10px}
+  .sci{padding:14px}
+}
 </style>
 </head>
 <body>
 
 <div class="hdr">
   <a href="https://alistairlendor.com" class="hdr-l">Portfolio</a>
-  <span class="hdr-r" id="d"></span>
+  <span class="hdr-r">2026.06.23</span>
 </div>
 
 <div class="sg">
-  <div class="sci"><div class="sci-l">组合净值</div><div class="sci-v">¥10,332</div><div class="sci-c up">+¥332 · +3.32%</div></div>
-  <div class="sci"><div class="sci-l">累计收益</div><div class="sci-v up">+¥332</div><div class="sci-c">成立以来 +3.32%</div></div>
-  <div class="sci"><div class="sci-l">当日收益</div><div class="sci-v up">+¥128</div><div class="sci-c">+1.25%</div></div>
-  <div class="sci"><div class="sci-l">成立天数</div><div class="sci-v">41天</div><div class="sci-c">年化 +15.8%</div></div>
+  <div class="sci">
+    <div class="sci-l">组合净值</div>
+    <div class="sci-v">¥10,332</div>
+    <div class="sci-c">初始 ¥10,000</div>
+  </div>
+  <div class="sci">
+    <div class="sci-l">累计收益</div>
+    <div class="sci-v up">+¥332</div>
+    <div class="sci-c up">+3.32%</div>
+  </div>
+  <div class="sci">
+    <div class="sci-l">当日预估</div>
+    <div class="sci-v dn">-¥77</div>
+    <div class="sci-c dn">-0.74%</div>
+  </div>
+  <div class="sci">
+    <div class="sci-l">成立天数</div>
+    <div class="sci-v">42天</div>
+    <div class="sci-c">2026.05.12</div>
+  </div>
 </div>
 
 <!-- ═══ 市场复盘 ═══ -->
@@ -116,17 +141,21 @@ a{color:inherit;text-decoration:none}
 <div class="sc-hd">市场复盘</div>
 
 <div class="ab">
-  <div class="ab-h">A 股 · 缩量震荡，结构性行情延续</div>
-  <div class="ab-t"><span class="ab-tag">大盘</span><span class="ab-tag">缩量</span></div>
-  <div class="ab-p">今日 A 股三大指数整体小幅收跌，沪指跌 0.28% 报 3,028 点，深成指跌 0.69%，创业板指跌 0.86%。两市成交额缩至 8,420 亿元，较前一交易日减少约 600 亿，市场观望情绪浓厚。</div>
-  <div class="ab-p">板块方面：电子、通信、AI 算力逆势走强；消费、地产、金融延续调整。北向资金全天净卖出 18.6 亿元，外资持续流出消费板块。</div>
+  <div class="ab-h">宏观面 · 美债利率攀升压制全球风险偏好</div>
+  <div class="ab-t"><span class="ab-tag">宏观</span><span class="ab-tag">利率</span></div>
+  <div class="ab-p">美联储6月议息会议大幅下调年内降息预期，过半官员提示下半年或重启加息，10年期美债收益率站上4.1%，美元指数走强。中美利差走阔对外资流入形成抑制，高估值科技成长股估值承压。</div>
 </div>
 
 <div class="ab">
-  <div class="ab-h">海外 · 美联储按兵不动，科技股领涨</div>
-  <div class="ab-t"><span class="ab-tag">美股</span><span class="ab-tag">利率</span></div>
-  <div class="ab-p">隔夜美股三大指数收涨，纳斯达克涨 1.2%，标普 500 涨 0.7%。美联储 6 月议息决议按兵不动，点阵图显示年内降息预期收窄至 1 次。市场对此已有充分预期，科技股在 AI 情绪推动下领涨。</div>
-  <div class="ab-p">美债收益率小幅回落，10 年期收益率报 4.22%。美元指数微跌至 104.8。</div>
+  <div class="ab-h">行业面 · 节后大涨后指数分化回调</div>
+  <div class="ab-t"><span class="ab-tag">行业</span><span class="ab-tag">轮动</span></div>
+  <div class="ab-p">端午后首日（6/22）A股放量大涨，全市场成交额3.76万亿创历史次高，券商、稀有金属、氟化工板块领涨。今日三大指数分化回调，上证指数微跌0.10%，创业板回调0.56%，银行板块逆势涨1.37%，科技成长股普遍承压。</div>
+</div>
+
+<div class="ab">
+  <div class="ab-h">资金面 · IPO抽血与解禁压力并存</div>
+  <div class="ab-t"><span class="ab-tag">资金</span><span class="ab-tag">情绪</span></div>
+  <div class="ab-p">北向资金逢反弹减持AI、光模块、半导体龙头，短期方向偏谨慎。深市史上最大IPO华润新能源（245亿募资）今日申购，叠加6月解禁高峰，二级市场面临资金分流压力。央行提前投放中长期资金平滑月末考核扰动。</div>
 </div>
 </div>
 
@@ -135,21 +164,21 @@ a{color:inherit;text-decoration:none}
 <div class="sc-hd">ETF 深度分析</div>
 
 <div class="etf">
-  <div class="etf-h"><span class="etf-n">沪深 300ETF 联接 C</span><span class="etf-c">006131 · 50%</span></div>
-  <div class="etf-s">跟踪沪深 300 指数，配置比例 50%。最新净值 ¥5,166。今日估值 -0.28%，小幅回调。近期大盘价值风格偏弱，但沪深 300 估值处于历史低位，长期配置价值确定。跟踪误差 0.12%/年，费率 0.2%/年。</div>
-  <div class="etf-m"><div>年化收益 +5.4%</div><div>最大回撤 -12.3%</div><div>PE 11.8 倍</div><div>股息率 2.9%</div></div>
+  <div class="etf-h"><span class="etf-n">沪深300ETF 联接C</span><span class="etf-c">006131 · 50%</span></div>
+  <div class="etf-s">跟踪沪深300指数，配置50%，当前市值¥5,166。今日估值回调约1.1%，受美债利率上行与外资流出权重股拖累。但沪深300当前PE约12.5倍，处于近五年30%分位，估值安全边际充足，银行板块逆势走强提供支撑。</div>
+  <div class="etf-m"><div>仓位 50%</div><div>市值 ¥5,166</div><div>PE 12.5x</div><div>股息率 2.9%</div></div>
 </div>
 
 <div class="etf">
-  <div class="etf-h"><span class="etf-n">中证 500ETF 联接 C</span><span class="etf-c">004348 · 30%</span></div>
-  <div class="etf-s">跟踪中证 500 指数，配置比例 30%。最新净值 ¥3,100。今日估值 -0.69%。中小盘风格本周偏弱，但中证 500 盈利增速预期高于沪深 300，弹性更大。短期调整不改中期看好。</div>
-  <div class="etf-m"><div>年化收益 +7.2%</div><div>最大回撤 -15.8%</div><div>PE 16.2 倍</div><div>盈利增长 +12%</div></div>
+  <div class="etf-h"><span class="etf-n">中证500ETF 联接C</span><span class="etf-c">004348 · 30%</span></div>
+  <div class="etf-s">跟踪中证500指数，配置30%，当前市值¥3,100。今日回调约0.6%，弹性大于沪深300。中证500成分股覆盖新经济领域（医药、电子、电力设备），盈利增速预期高于大盘，短期受科技板块拖累但中期增长逻辑清晰。</div>
+  <div class="etf-m"><div>仓位 30%</div><div>市值 ¥3,100</div><div>PE 16.8x</div><div>盈利增长 +11%</div></div>
 </div>
 
 <div class="etf">
-  <div class="etf-h"><span class="etf-n">银华多利宝货币 A</span><span class="etf-c">余额宝 · 20%</span></div>
-  <div class="etf-s">货币基金，配置比例 20%。最新净值 ¥2,066。年化收益率约 2.1%，作为组合的现金管理工具，提供流动性和稳定收益。当市场出现大幅调整时，可作为加仓预备金使用。</div>
-  <div class="etf-m"><div>7 日年化 2.1%</div><div>万份收益 0.56</div><div>零波动</div><div>实时赎回</div></div>
+  <div class="etf-h"><span class="etf-n">银华多利宝货币A</span><span class="etf-c">余额宝 · 20%</span></div>
+  <div class="etf-s">货币基金，配置20%，当前市值¥2,066。7日年化约1.9%，收益稳定零波动。作为组合的现金管理工具与"安全垫"，在市场回调时可提供流动性支持，是加仓操作的预备资金池，建议维持现有配置不变。</div>
+  <div class="etf-m"><div>仓位 20%</div><div>市值 ¥2,066</div><div>7日年化 1.9%</div><div>零波动</div></div>
 </div>
 </div>
 
@@ -158,11 +187,11 @@ a{color:inherit;text-decoration:none}
 <div class="sc-hd">组合操作建议</div>
 
 <div class="tip">
-  <strong>持仓观望，等待加仓时机。</strong>当前沪深 300 估值接近历史底部区域，但短期市场情绪偏弱。建议保留 20% 货币仓位作为机动，若沪指跌破 3,000 点可分批加仓沪深 300 ETF。中证 500 弹性更大，建议在止跌企稳后右侧加仓。
+  <strong>维持持有，静待回调加仓时机。</strong>当前组合整体+3.32%，表现符合预期。短期市场受海外利率压制进入震荡，但A股核心资产估值仍处合理偏低区间。建议沪深300ETF若回调至4800以下（对应PE约11.5x）可适度加仓，中证500ETF等待右侧企稳信号。货币基金20%仓位提供充足缓冲，无需急于操作。
 </div>
 
 <div class="ab" style="padding:12px 16px">
-  <div class="ab-p" style="font-size:.78rem">操作评级：<strong style="color:var(--red)">观望</strong> · 风险偏好：中性 · 建议仓位：80%</div>
+  <div class="ab-p" style="font-size:.78rem">操作评级：<strong style="color:var(--fg3)">持有</strong> · 风险偏好：中性 · 权益仓位：80% · 加仓触发线：沪深300 PE &lt; 11.5x</div>
 </div>
 </div>
 
@@ -171,7 +200,7 @@ a{color:inherit;text-decoration:none}
 <div class="sc-hd">持仓明细</div>
 
 <table class="tbl">
-<tr><th>代码</th><th>名称</th><th>市值</th><th>占比</th><th>收益</th></tr>
+<tr><th>代码</th><th>名称</th><th>市值</th><th>占比</th><th>累计收益</th></tr>
 <tr><td>006131</td><td>沪深300ETF联接C</td><td>¥5,166</td><td>50%</td><td class="up">+¥166</td></tr>
 <tr><td>004348</td><td>中证500ETF联接C</td><td>¥3,100</td><td>30%</td><td class="up">+¥100</td></tr>
 <tr><td>余额宝</td><td>银华多利宝货币A</td><td>¥2,066</td><td>20%</td><td class="up">+¥66</td></tr>
@@ -184,10 +213,9 @@ a{color:inherit;text-decoration:none}
 <div class="sc-hd">投资知识</div>
 
 <div class="ab">
-  <div class="ab-h">定投 vs 一次性投入：哪个更适合你？</div>
-  <div class="ab-t"><span class="ab-tag">入门</span><span class="ab-tag">策略</span></div>
-  <div class="ab-p">定投的核心优势不是收益率更高，而是<strong>纪律性</strong>——它帮你避开"买在高点、卖在低点"的常见错误。统计数据显示，在 3 年以上的投资周期中，定投的年化收益与一次性投入差异不大，但<strong>最大回撤</strong>平均降低 30-50%。对于有稳定现金流的投资者（如每月有工资结余），定投是最省心的策略。</div>
-  <div class="ab-p">建议：每月发薪日后，将储蓄金额按 50/30/20 比例分配到沪深 300 / 中证 500 / 货币基金。</div>
+  <div class="ab-h">FED模型：股债性价比怎么看？</div>
+  <div class="ab-t"><span class="ab-tag">估值</span><span class="ab-tag">框架</span></div>
+  <div class="ab-p">FED模型比较股票盈利收益率（市盈率倒数E/P）与无风险利率（10年期国债收益率）之差。差值越大，股票相对债券越有吸引力。当前沪深300 E/P约8.0%，10年期国债收益率约2.4%，差值达5.6个百分点，处历史高位区间，说明A股核心资产相对债券仍具明显配置价值。当美债利率攀升导致差值收窄时，需警惕外资流出压力。</div>
 </div>
 </div>
 
@@ -195,8 +223,5 @@ a{color:inherit;text-decoration:none}
   <a href="https://alistairlendor.com">← 返回控制台</a> · 每日 16:00 更新
 </div>
 
-<script>
-document.getElementById('d').textContent = new Date().toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'short'});
-</script>
 </body>
 </html>
