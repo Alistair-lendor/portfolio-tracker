@@ -3,468 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Alistair</title>
+<title>Portfolio - June 25, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <style>
 :root {
   --bg: #ffffff;
-  --bg-card: #ffffff;
   --text-primary: #171717;
   --text-secondary: #4d4d4d;
   --text-tertiary: #666666;
   --text-muted: #808080;
   --border: rgba(0,0,0,0.08);
-  --hover-bg: #f5f5f5;
-  --positive: #171717;
-  --negative: #171717;
+  --card-bg: #ffffff;
+  --red: #d0312d;
+  --green: #1a7d36;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0a0a0a;
-    --bg-card: #111111;
     --text-primary: #ededed;
-    --text-secondary: #a1a1a1;
+    --text-secondary: #a1a1aa;
     --text-tertiary: #808080;
-    --text-muted: #666666;
-    --border: rgba(255,255,255,0.08);
-    --hover-bg: #1a1a1a;
-    --positive: #ededed;
-    --negative: #ededed;
+    --text-muted: #52525b;
+    --border: rgba(255,255,255,0.06);
+    --card-bg: #111111;
+    --red: #f87171;
+    --green: #4ade80;
   }
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
-.container {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
+.container { max-width: 520px; margin: 0 auto; padding: 24px 16px; }
 
 /* Header */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 24px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 28px; padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 24px;
 }
-
-.header h1 {
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  color: var(--text-primary);
-}
-
-.header .date {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
+.header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.04em; color: var(--text-primary); }
+.header .date { font-size: 12px; color: var(--text-tertiary); font-weight: 400; letter-spacing: 0.02em; }
 
 /* Stats Grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
 .stat-card {
-  background: var(--bg-card);
-  padding: 16px;
+  background: var(--card-bg); border-radius: 8px; padding: 16px;
   box-shadow: 0px 0px 0px 1px var(--border);
-  border-radius: 8px;
 }
-
-.stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 6px;
-}
-
-.stat-value {
-  font-family: 'Geist Mono', monospace;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
-}
-
-.stat-sub {
-  font-family: 'Geist Mono', monospace;
-  font-size: 12px;
-  margin-top: 2px;
-  letter-spacing: -0.02em;
-}
-
-.stat-sub.positive { color: var(--positive); }
-.stat-sub.negative { color: var(--negative); }
+.stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+.stat-value { font-size: 20px; font-weight: 600; letter-spacing: -0.03em; color: var(--text-primary); }
+.stat-value .mono { font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace; font-weight: 500; }
+.stat-change { font-size: 12px; margin-top: 2px; font-weight: 500; }
+.stat-change.up { color: var(--red); }
+.stat-change.down { color: var(--green); }
 
 /* Section */
-.section {
-  margin-bottom: 24px;
+.section { margin-bottom: 24px; }
+.section-title {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted); font-weight: 600; margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
 }
 
-.section-title {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
+/* Content Cards */
+.content-card {
+  background: var(--card-bg); border-radius: 8px; padding: 14px 16px;
+  box-shadow: 0px 0px 0px 1px var(--border); margin-bottom: 8px;
+}
+.content-card:last-child { margin-bottom: 0; }
+.content-card h3 { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; letter-spacing: -0.01em; }
+.content-card p, .content-card li { font-size: 12.5px; color: var(--text-secondary); line-height: 1.7; }
+.content-card ul { list-style: none; padding: 0; }
+.content-card li { padding: 3px 0 3px 12px; position: relative; }
+.content-card li::before { content: ''; position: absolute; left: 0; top: 11px; width: 4px; height: 4px; border-radius: 50%; background: var(--text-tertiary); }
+
+/* Holdings Table */
+.holdings-table { width: 100%; border-collapse: collapse; }
+.holdings-table th {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); font-weight: 500; padding: 6px 8px; text-align: left;
   border-bottom: 1px solid var(--border);
 }
-
-.section-content {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.7;
+.holdings-table td {
+  font-size: 12.5px; color: var(--text-secondary); padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
 }
-
-.section-content p {
-  margin-bottom: 8px;
-}
-
-.section-content p:last-child {
-  margin-bottom: 0;
-}
-
-/* ETF Cards */
-.etf-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.etf-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  box-shadow: 0px 0px 0px 1px var(--border);
-  border-radius: 6px;
-  background: var(--bg-card);
-}
-
-.etf-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.etf-code {
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px;
-  color: var(--text-muted);
-}
-
-.etf-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.etf-holdings {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.etf-value {
-  font-family: 'Geist Mono', monospace;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.etf-pct {
-  font-family: 'Geist Mono', monospace;
-  font-size: 11px;
-  color: var(--text-muted);
-}
-
-/* Recommendation */
-.rec-card {
-  padding: 16px;
-  box-shadow: 0px 0px 0px 1px var(--border);
-  border-radius: 8px;
-  background: var(--bg-card);
-  margin-bottom: 8px;
-}
-
-.rec-card:last-child {
-  margin-bottom: 0;
-}
-
-.rec-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 4px;
-}
-
-.rec-text {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
+.holdings-table tr:last-child td { border-bottom: none; }
+.holdings-table .mono { font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace; }
+.holdings-table .ticker { font-size: 11px; color: var(--text-tertiary); }
+.holdings-table .pct { color: var(--text-muted); font-size: 11px; }
+.holdings-table .up { color: var(--red); }
+.holdings-table .down { color: var(--green); }
 
 /* Footer */
 .footer {
-  margin-top: 32px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  text-align: left;
+  margin-top: 32px; padding-top: 16px;
+  border-top: 1px solid var(--border); text-align: center;
 }
-
 .footer a {
-  font-size: 13px;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.15s ease;
+  font-size: 12px; color: var(--text-tertiary); text-decoration: none;
+  transition: color 0.15s;
 }
+.footer a:hover { color: var(--text-primary); }
+.footer .sep { color: var(--text-muted); margin: 0 8px; font-size: 10px; }
 
-.footer a:hover {
-  color: var(--text-primary);
-}
-
-/* Knowledge card */
-.knowledge-block {
-  padding: 16px;
-  box-shadow: 0px 0px 0px 1px var(--border);
-  border-radius: 8px;
-  background: var(--bg-card);
-}
-
-.knowledge-title {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
-}
-
-.knowledge-text {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* Holdings table */
-.holdings-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.holdings-table th {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  text-align: left;
-  padding: 6px 8px;
-  border-bottom: 1px solid var(--border);
-}
-
-.holdings-table td {
-  font-size: 12px;
-  color: var(--text-secondary);
-  padding: 8px;
-  border-bottom: 1px solid var(--border);
-  font-family: 'Geist Mono', monospace;
-}
-
-.holdings-table td:last-child,
-.holdings-table th:last-child {
-  text-align: right;
-}
-
-.holdings-table tr:last-child td {
-  border-bottom: none;
-}
-
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: 20px 0;
-}
+/* Tags */
+.tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 500; margin-right: 4px; }
+.tag-hold { background: rgba(0,0,0,0.05); color: var(--text-tertiary); }
+@media (prefers-color-scheme: dark) { .tag-hold { background: rgba(255,255,255,0.08); } }
+.tag-buy { background: rgba(208,49,45,0.1); color: var(--red); }
+.tag-sell { background: rgba(26,125,54,0.1); color: var(--green); }
+@media (prefers-color-scheme: dark) { .tag-buy { background: rgba(248,113,113,0.15); } .tag-sell { background: rgba(74,222,128,0.15); } }
 </style>
 </head>
 <body>
 <div class="container">
 
+  <!-- Header -->
   <div class="header">
     <h1>Portfolio</h1>
-    <span class="date">2026.06.24</span>
+    <span class="date">2026.06.25</span>
   </div>
 
   <!-- Stats Grid -->
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-label">Nav</div>
-      <div class="stat-value">10,332</div>
+      <div class="stat-label">Net Value</div>
+      <div class="stat-value"><span class="mono">&#165;10,340</span></div>
+      <div class="stat-change up">+&#165;340</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Cum. Return</div>
-      <div class="stat-value">+332</div>
-      <div class="stat-sub positive">+3.32%</div>
+      <div class="stat-label">Total Return</div>
+      <div class="stat-value"><span class="mono">+3.40%</span></div>
+      <div class="stat-change up">+&#165;340</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Day Change</div>
-      <div class="stat-value">-8</div>
-      <div class="stat-sub negative">-0.08%</div>
+      <div class="stat-label">Daily P&amp;L</div>
+      <div class="stat-value"><span class="mono">+&#165;8</span></div>
+      <div class="stat-change up">+0.08%</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Since</div>
-      <div class="stat-value">55d</div>
-      <div class="stat-sub">Apr 30</div>
+      <div class="stat-label">Since Inception</div>
+      <div class="stat-value"><span class="mono">15 days</span></div>
+      <div class="stat-change" style="color:var(--text-tertiary);">Jun 10, 2026</div>
     </div>
   </div>
 
-  <!-- Section: 市场复盘 -->
+  <!-- Market Review -->
   <div class="section">
-    <div class="section-title">Market Recap</div>
-    <div class="section-content">
-      <p><strong>宏观面</strong> — 6/24 A股三大指数涨跌互现，沪指震荡回调0.25%报4096点，深成指微涨0.33%，创业板指收涨0.42%。沪深两市半日成交2.09万亿，较上日缩量。海外方面，美股科技股重挫（纳指-2.21%，费城半导体-7.87%），中概股承压-3.34%，对A股情绪形成压制。</p>
-      <p><strong>行业面</strong> — 芯片产业链大幅走强，先进封装方向领涨，汇成股份、长电科技涨停；PCB概念震荡反弹，创新药持续活跃，航运板块逆势走强。影视、煤炭板块回调。中国移动提出构建一体化算力网，豆包专业版正式上线。</p>
-      <p><strong>资金面</strong> — 两市半日成交缩量，市场高位趋于谨慎。科创50ETF前期获利了结迹象明显。北向资金或受隔夜美股科技暴跌影响，短期存在外资流出压力。</p>
+    <div class="section-title">Market Review</div>
+    <div class="content-card">
+      <h3>Macro</h3>
+      <p>A股三大指数早盘分化后集体走强，沪指收涨0.36%，深成指+1.46%，创业板指+2.01%。两市成交额24388亿元，较前日放量3390亿。三部门联合发布稳外资15条，释放政策利好，提振市场信心。但全市场逾4300只个股下跌，结构极度分化。</p>
     </div>
-  </div>
-
-  <!-- Section: ETF深度分析 -->
-  <div class="section">
-    <div class="section-title">ETF Analysis</div>
-    <div class="etf-list">
-      <div class="etf-item">
-        <div class="etf-info">
-          <span class="etf-code">006131</span>
-          <span class="etf-name">沪深300ETF</span>
-        </div>
-        <div class="etf-holdings">
-          <span class="etf-value">5,166</span>
-          <span class="etf-pct">50%</span>
-        </div>
-      </div>
-      <div class="etf-item">
-        <div class="etf-info">
-          <span class="etf-code">004348</span>
-          <span class="etf-name">中证500ETF</span>
-        </div>
-        <div class="etf-holdings">
-          <span class="etf-value">3,100</span>
-          <span class="etf-pct">30%</span>
-        </div>
-      </div>
-      <div class="etf-item">
-        <div class="etf-info">
-          <span class="etf-code">000000</span>
-          <span class="etf-name">银华货币A</span>
-        </div>
-        <div class="etf-holdings">
-          <span class="etf-value">2,066</span>
-          <span class="etf-pct">20%</span>
-        </div>
-      </div>
+    <div class="content-card">
+      <h3>Sector</h3>
+      <p>半导体产业链全面爆发，科创50指数大涨4.18%站上2000点创历史新高，GPU、存储器方向领涨。券商午前拉升，金融科技同步走强。黄金板块受避险情绪推动活跃。消费板块局部异动，但整体分化。</p>
+    </div>
+    <div class="content-card">
+      <h3>Capital Flow</h3>
+      <p>量能放大至2.44万亿，但资金高度集中在大科技方向，金融股拉升后回落显示增量资金不足。北向资金午后加速流入，市场仍为存量博弈格局中的结构性行情，赚钱效应仅集中在少数板块。</p>
     </div>
   </div>
 
   <!-- ETF Deep Analysis -->
   <div class="section">
-    <div class="section-title">Deep Analysis</div>
-    <div class="section-content">
-      <p><strong>006131 沪深300ETF</strong> — 大盘价值代表，近期随指数在4100点上下震荡整理。沪深300当前PE约11.2倍，处于历史中低分位。海外科技暴跌对大国价值影响有限，适合作为组合底仓继续持有。</p>
-      <p><strong>004348 中证500ETF</strong> — 上周中证500周涨6.99%，表现显著强于沪深300，中小盘风格占优。今日市场分化下中小盘相对活跃，但短期涨幅偏大，需关注获利回吐压力。</p>
-      <p><strong>银华货币A</strong> — 7日年化收益率约1.5%-1.8%，作为现金管理工具提供组合流动性。20%仓位合理，可用于市场明调时的分批加仓机会。</p>
+    <div class="section-title">ETF Deep Dive</div>
+    <div class="content-card">
+      <h3>006131 CSI 300 ETF <span class="ticker" style="font-size:11px;color:var(--text-muted);font-weight:400;">50%</span></h3>
+      <p>沪深300今日跟随大盘小幅反弹，大市值成分股中半导体、金融科技标的贡献主要涨幅。估值仍处近五年低位（PE&lt;11.5x），安全边际充裕。中期看，稳外资政策落地和经济数据企稳将支撑蓝筹估值修复。</p>
+    </div>
+    <div class="content-card">
+      <h3>004348 CSI 500 ETF <span class="ticker" style="font-size:11px;color:var(--text-muted);font-weight:400;">30%</span></h3>
+      <p>中证500今日承压，受全市场4300只个股下跌拖累，中小盘股资金持续外流至科技龙头。短期波动加大但中期逻辑未变——宽基均衡配置中不可或缺的一环。当前估值合理偏低，等待风格轮动回归。</p>
+    </div>
+    <div class="content-card">
+      <h3>Yinhua Money Market A <span class="ticker" style="font-size:11px;color:var(--text-muted);font-weight:400;">20%</span></h3>
+      <p>银华货币A维持平稳运作，七日年化约1.8%，作为组合的现金压舱石提供流动性缓冲。在市场极端分化行情下，20%的货币仓位有效降低整体波动，也为潜在加仓机会预留弹药。</p>
     </div>
   </div>
 
-  <!-- Section: 组合操作建议 -->
+  <!-- Operations -->
   <div class="section">
-    <div class="section-title">Recommendations</div>
-    <div class="rec-card">
-      <div class="rec-label">Assessment</div>
-      <div class="rec-text">组合净值10,332，累计+3.32%，仓位偏防御（50/30/20）。若沪深300回调至4000点以丏（PE<11x），可逐步将货币仓位分批加仓沪深300ETF，首笔加仓建议5広元。中证500短期涨幅偏大，不要追高。货币仓卍保留底对波劣。</div>
+    <div class="section-title">Portfolio Actions</div>
+    <div class="content-card">
+      <h3>Current Assessment</h3>
+      <p>组合净值小幅回升至&#165;10,340，累计收益+3.40%。当前市场处于"指数繁荣、个股凋零"的极端分化阶段，科技一枝独秀而宽基指数涨幅有限。组合80%权益仓位暴露适中，货币仓位提供安全垫。</p>
     </div>
-    <div class="rec-card">
-      <div class="rec-label">Action</div>
-      <div class="rec-text"><strong>持有</strong> - 当前组位结构合理。若沪深300回调至4000点以丏（PE<11x），可逐步将货币仓位分批加仓沪深300ETF，雦�4劥仓建议500元。追櫋中证500埜不惑快逜，不建誝길。</div>
+    <div class="content-card">
+      <h3>Suggested Actions</h3>
+      <p><span class="tag tag-hold">HOLD</span> 沪深300ETF维持持有，当前PE&lt;11.5x估值偏低，安全边际足。若上证回落至4000点以下触发加仓信号。</p>
+      <p style="margin-top:6px;"><span class="tag tag-hold">HOLD</span> 中证500ETF保持仓位不动，中小盘风格轮动需耐心等待，不追涨杀跌。</p>
+      <p style="margin-top:6px;"><span class="tag tag-hold">HOLD</span> 货币基金维持20%仓位，市场极端分化下保留现金灵活性，留待优质标的回调介入。</p>
     </div>
   </div>
 
-  <!-- Section: 持仓明细 -->
+  <!-- Holdings -->
   <div class="section">
     <div class="section-title">Holdings</div>
-    <table class="holdings-table">
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Value</th>
-          <th>Weight</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>006131</td>
-          <td>沪深300ETF</td>
-          <td>5,166</td>
-          <td>50.0%</td>
-        </tr>
-        <tr>
-          <td>004348</td>
-          <td>中证500ETF</td>
-          <td>3,100</td>
-          <td>30.0%</td>
-        </tr>
-        <tr>
-          <td>000000</td>
-          <td>银华货币A</td>
-          <td>2,066</td>
-          <td>20.0%</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Section: 投资知识 -->
-  <div class="section">
-    <div class="section-title">Knowledge</div>
-    <div class="knowledge-block">
-      <div class="knowledge-title">核心-卫星策略</div>
-      <div class="knowledge-text">
-        一刑资产遍置的"核心-e��柟"策略：核心仓位饄叵指数it必配置宽限刪，戏取市场贝塔收盋，占比60%-80%；卫柟仓位饄叵日颗ETF或减把ވ�正式，出泊浖價来量工侧后，占比20%-40%。当他市圳波劣加大时，核心.光仓位提供��鮩性，外布向布局品快速大在意上的无情老不含数情。</p>
-      </div>
+    <div class="content-card" style="padding:0;">
+      <table class="holdings-table">
+        <thead>
+          <tr><th>ETF</th><th>Allocation</th><th style="text-align:right;">Value</th><th style="text-align:right;">P&amp;L</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>006131 CSI 300</td>
+            <td><span class="pct">50%</span></td>
+            <td style="text-align:right;"><span class="mono">&#165;5,176</span></td>
+            <td style="text-align:right;"><span class="mono up">+&#165;10</span></td>
+          </tr>
+          <tr>
+            <td>004348 CSI 500</td>
+            <td><span class="pct">30%</span></td>
+            <td style="text-align:right;"><span class="mono">&#165;3,095</span></td>
+            <td style="text-align:right;"><span class="mono down">-&#165;5</span></td>
+          </tr>
+          <tr>
+            <td>Yinhua Money A</td>
+            <td><span class="pct">20%</span></td>
+            <td style="text-align:right;"><span class="mono">&#165;2,066</span></td>
+            <td style="text-align:right;"><span class="mono" style="color:var(--text-tertiary);">~</span></td>
+          </tr>
+          <tr style="font-weight:600;">
+            <td>Total</td>
+            <td><span class="pct">100%</span></td>
+            <td style="text-align:right;"><span class="mono">&#165;10,340</span></td>
+            <td style="text-align:right;"><span class="mono up">+&#165;340</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <div class="divider"></div>
+  <!-- Knowledge Corner -->
+  <div class="section">
+    <div class="section-title">Investor Knowledge</div>
+    <div class="content-card">
+      <h3>Sharpe Ratio: Risk-Adjusted Return</h3>
+      <p>夏普比率衡量每承担一单位总风险所获得的超额回报。公式为 (组合收益率 - 无风险利率) / 组合标准差。比率高于1为可接受，高于2为优秀。一般投资者常犯的错误是只关注收益率而忽略波动——一个年化8%但波动15%的组合，可能不如年化6%但波动5%的组合更能帮你安心持有。在极端分化行情中，低波动货币仓位的存在能显著提升组合的夏普比率。</p>
+    </div>
+  </div>
 
+  <!-- Footer -->
   <div class="footer">
-    <a href="https://alistairlendor.com">← Back to Console</a>
+    <a href="https://alistairlendor.com">&larr; Back to Console</a>
+    <span class="sep">/</span>
+    <a href="https://invest.alistairlendor.com">invest.alistairlendor.com</a>
   </div>
 
 </div>
