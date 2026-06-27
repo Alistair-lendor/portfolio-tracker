@@ -64,6 +64,7 @@ body {
   font-size: 13px;
   color: var(--text-tertiary);
   font-weight: 400;
+  font-family: 'Geist Mono', monospace;
 }
 .stats-grid {
   display: grid;
@@ -121,6 +122,9 @@ body {
   margin-bottom: 10px;
   line-height: 1.7;
 }
+.section p:last-child {
+  margin-bottom: 0;
+}
 .section strong {
   color: var(--text-primary);
   font-weight: 500;
@@ -159,11 +163,6 @@ body {
   font-family: 'Geist Mono', monospace;
   margin-top: 1px;
 }
-.holding-allocation {
-  font-size: 11px;
-  color: var(--text-tertiary);
-  margin-top: 2px;
-}
 
 .footer {
   padding: 24px 0 32px;
@@ -191,50 +190,50 @@ body {
 
   <div class="header">
     <h1>Portfolio</h1>
-    <span class="date">2026.06.26</span>
+    <span class="date">2026.06.27</span>
   </div>
 
   <div class="stats-grid">
     <div class="stat-card">
       <div class="label">Net Asset Value</div>
-      <div class="value">&#165;10,125</div>
+      <div class="value">&#165;10,332</div>
       <div class="sub">Total Portfolio</div>
     </div>
     <div class="stat-card">
       <div class="label">Cumulative Return</div>
-      <div class="value up">+&#165;125</div>
-      <div class="sub">+1.25%</div>
+      <div class="value up">+&#165;332</div>
+      <div class="sub">+3.32%</div>
     </div>
     <div class="stat-card">
       <div class="label">Day Change</div>
-      <div class="value down">-&#165;215</div>
-      <div class="sub">-2.08%</div>
+      <div class="value neutral">&#165;0</div>
+      <div class="sub">0.00% (Weekend)</div>
     </div>
     <div class="stat-card">
       <div class="label">Days Active</div>
-      <div class="value">5</div>
+      <div class="value">6</div>
       <div class="sub">Since 2026.06.22</div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Market Review</div>
-    <p><strong>宏观面</strong> — 隔夜美股科技龙头暴跌（苹果-6%以上），美联储加息预期升温推动美元指数走强，全球风险资产承压。A股三大指数全线重挫，市场情绪极度悲观。</p>
-    <p><strong>行业面</strong> — 通信板块暴跌6.81%领跌全场，有色金属-4.14%，计算机、电力设备跌逾3%。前期热门科技方向全线退潮，算力硬件板块跌幅尤为惨烈。</p>
-    <p><strong>资金面</strong> — 两市成交3.55万亿元缩量419亿，超4600只个股下跌。防御方向获资金逆势涌入（长江电力创历史新高），北向资金净流出压力加大。</p>
+    <p><strong>宏观面</strong> -- 隔夜美股三大指数微跌（道指-0.09%），费城半导体指数暴跌5.29%拖累全球科技情绪；美光等芯片股重挫。国际油价跌至72美元/桶。国内方面，国新办公布"十五五"新型能源体系建设顶层规划，能源基建方向获政策催化。</p>
+    <p><strong>行业面</strong> -- 上周五A股全线重挫，沪指-2.26%报4027点，深成指-3.44%，创业板指-4.07%。通信板块暴跌6.81%领跌全场，有色金属-4.14%，仅790只个股上涨，4676只下跌。被动基金本周累计减持超1077亿元，形成持续抛压。</p>
+    <p><strong>资金面</strong> -- 两市成交3.55万亿元缩量419亿元，主力资金净流出电子和通信两大板块合计超566亿元。中际旭创、新易盛等前期热门算力标的遭大幅抛售。防御方向长江电力逆势获资金涌入创历史新高，北向资金流出压力加大。</p>
   </div>
 
   <div class="section">
     <div class="section-title">ETF Analysis</div>
-    <p><strong>沪深300ETF</strong> — 今日预估净值下跌约2.5%。大盘蓝筹受外资流出和情绪面冲击明显，但当前PE已跌破11x，处于近三年估值低位。安全边际充足，中长期配置价值逐步显现，短期需等待企稳信号。</p>
-    <p><strong>中证500ETF</strong> — 今日预估净值下跌约3.2%。科技成长板块大幅回调对中证500拖累更为显著，短期承压较重。但中盘股业绩弹性依旧，调整后估值吸引力提升，维持中期看好判断。</p>
-    <p><strong>银华货币A</strong> — 维持正收益，七日年化约1.9%。在股市大幅调整期间，货币仓位提供了稳定的现金流缓冲，有效降低了组合整体波动。</p>
+    <p><strong>沪深300ETF (006131) 50%</strong> -- 持仓&#165;5,166。大盘蓝筹受外资流出和情绪面冲击明显，沪深300 PE已跌破11x处于近三年低位。安全边际充足，中长期配置价值逐步显现，短期需等待企稳信号。</p>
+    <p><strong>中证500ETF (004348) 30%</strong> -- 持仓&#165;3,100。科技成长板块大幅回调对中证500拖累更为显著，短期承压较重。但中盘股业绩弹性依旧，调整后估值吸引力提升，维持中期看好判断。</p>
+    <p><strong>银华货币A 20%</strong> -- 持仓&#165;2,066。维持正收益，七日年化约1.9%。在股市大幅调整期间提供了稳定的现金流缓冲，有效降低组合整体波动。</p>
   </div>
 
   <div class="section">
     <div class="section-title">Position Suggestion</div>
-    <p><strong>当前评估</strong> — 今日A股全线重挫，组合净值回撤约2.08%，权益部分承压明显。但沪深300 PE&lt;11x已进入低估区间，中证500虽短期承压但中期弹性仍在。全市场恐慌情绪释放过程中，不宜盲目追涨杀跌。</p>
-    <p><strong>操作建议</strong> — 持有观望，不做恐慌性减仓。当前估值水平已隐含较多悲观预期。如沪指跌破4000点整数关口（沪深300 PE&lt;10.5x），可将货币仓位中10%加仓至沪深300ETF，左侧布局。</p>
+    <p><strong>当前评估</strong> -- 上周五A股全线重挫，但今日为周末无交易，组合净值维持不变。沪深300 PE&lt;11x已进入低估区间，中证500虽短期承压但中期弹性仍在。当前市场恐慌情绪释放过程中，不宜追涨杀跌。</p>
+    <p><strong>操作建议</strong> -- 持有观望，不做恐慌性减仓。当前权益80%+货币20%的结构合理，估值已隐含较多悲观预期。若下周沪指跌破4000点整数关口（沪深300 PE&lt;10.5x），可将货币仓位中10%加仓至沪深300ETF，左侧布局。关注下周初能否企稳，若出现放量止跌信号可视为短期底部确认。</p>
   </div>
 
   <div class="section">
@@ -245,7 +244,7 @@ body {
         <div class="holding-name">沪深300ETF</div>
       </div>
       <div class="holding-numbers">
-        <div class="holding-value down">&#165;5,041</div>
+        <div class="holding-value">&#165;5,166</div>
         <div class="holding-pct">50%</div>
       </div>
     </div>
@@ -255,7 +254,7 @@ body {
         <div class="holding-name">中证500ETF</div>
       </div>
       <div class="holding-numbers">
-        <div class="holding-value down">&#165;3,003</div>
+        <div class="holding-value">&#165;3,100</div>
         <div class="holding-pct">30%</div>
       </div>
     </div>
@@ -265,7 +264,7 @@ body {
         <div class="holding-name">货币基金</div>
       </div>
       <div class="holding-numbers">
-        <div class="holding-value">&#165;2,068</div>
+        <div class="holding-value">&#165;2,066</div>
         <div class="holding-pct">20%</div>
       </div>
     </div>
@@ -273,12 +272,12 @@ body {
 
   <div class="section">
     <div class="section-title">Investment Knowledge</div>
-    <p><strong>定投的微笑曲线</strong> — 市场下跌时坚持定投，能以更低价格积累更多份额，摊薄整体持仓成本。当市场回暖后，低成本积累的份额将带来更快的净值回升。关键在于：下跌期不恐惧停止定投，上涨期不贪心追高。投资纪律比择时能力更重要。</p>
+    <p><strong>定投的微笑曲线</strong> -- 市场下跌时坚持定投，能以更低价格积累更多份额，摊薄整体持仓成本。当市场回暖后，低成本积累的份额将带来更快的净值回升。关键在于：下跌期不恐惧停止定投，上涨期不贪心追高。投资纪律比择时能力更重要。对于当前市场，若采用定投策略，每次下跌都是积累廉价筹码的机会，而非恐慌离场的理由。</p>
   </div>
 
   <div class="footer">
     <a href="https://alistairlendor.com">&larr; 返回控制台</a>
-    <div class="footer-note">数据仅供参考，不构成投资建议。模拟组合，市场有风险。</div>
+    <div class="footer-note">数据仅供参考，不构成投资建议。模拟组合，市场有风险，投资需谨慎。</div>
   </div>
 
 </div>
