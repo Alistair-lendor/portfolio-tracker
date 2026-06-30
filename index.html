@@ -8,302 +8,286 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+:root {
+  --bg: #ffffff;
+  --fg: #171717;
+  --fg-secondary: #4d4d4d;
+  --fg-tertiary: #666666;
+  --fg-muted: #808080;
+  --border: rgba(0,0,0,0.08);
+  --card-bg: #ffffff;
+  --card-hover: #fafafa;
+  --red: #d0312d;
+  --green: #1a7d36;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg: #ffffff;
-    --text-primary: #171717;
-    --text-secondary: #4d4d4d;
-    --text-tertiary: #666666;
-    --text-muted: #808080;
-    --border: 0px 0px 0px 1px rgba(0,0,0,0.08);
-    --card-bg: #ffffff;
-    --hover-bg: #f5f5f5;
-    --positive: #171717;
-    --negative: #808080;
-    --line: #e5e5e5;
-    --link: #171717;
+    --bg: #0a0a0a;
+    --fg: #ededed;
+    --fg-secondary: #a1a1aa;
+    --fg-tertiary: #8a8a92;
+    --fg-muted: #6b6b72;
+    --border: rgba(255,255,255,0.08);
+    --card-bg: #141414;
+    --card-hover: #1a1a1a;
+    --red: #ef4444;
+    --green: #22c55e;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0a0a0a;
-      --text-primary: #ededed;
-      --text-secondary: #a1a1aa;
-      --text-tertiary: #71717a;
-      --text-muted: #52525b;
-      --border: 0px 0px 0px 1px rgba(255,255,255,0.08);
-      --card-bg: #0a0a0a;
-      --hover-bg: #18181b;
-      --positive: #ededed;
-      --negative: #71717a;
-      --line: #27272a;
-      --link: #ededed;
-    }
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body {
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
-    color: var(--text-primary);
-    font-size: 14px;
-    line-height: 1.6;
-    letter-spacing: -0.02em;
-  }
+body {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .container {
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 32px 20px 48px;
-  }
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
 
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 32px;
-  }
-  .header h1 {
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    color: var(--text-primary);
-  }
-  .header .date {
-    font-family: 'Geist Mono', monospace;
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-  }
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  box-shadow: 0px 1px 0px 0px var(--border);
+}
 
-  /* Stats Grid */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-  .stat-card {
-    background: var(--card-bg);
-    box-shadow: var(--border);
-    border-radius: 8px;
-    padding: 16px 14px;
-  }
-  .stat-card .label {
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-  .stat-card .value {
-    font-family: 'Geist Mono', monospace;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    color: var(--text-primary);
-  }
-  .stat-card .sub {
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-    color: var(--text-tertiary);
-    margin-top: 2px;
-  }
-  .stat-card .positive { color: var(--positive); }
-  .stat-card .negative { color: var(--negative); }
+.header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 
-  /* Section */
-  .section {
-    margin-bottom: 28px;
-  }
-  .section:last-of-type {
-    margin-bottom: 32px;
-  }
-  .section-title {
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--line);
-  }
+.header-date {
+  font-size: 13px;
+  color: var(--fg-muted);
+  font-family: 'Geist Mono', monospace;
+  letter-spacing: -0.01em;
+}
 
-  /* Market Review */
-  .review-item {
-    margin-bottom: 12px;
-  }
-  .review-item:last-child {
-    margin-bottom: 0;
-  }
-  .review-item .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    margin-bottom: 3px;
-  }
-  .review-item p {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    letter-spacing: -0.01em;
-  }
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
 
-  /* ETF Analysis */
-  .etf-item {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .etf-item:first-child { padding-top: 0; }
-  .etf-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .etf-item .code {
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-right: 6px;
-  }
-  .etf-item .name {
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--text-primary);
-  }
-  .etf-item .meta {
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-    color: var(--text-tertiary);
-    margin: 2px 0 4px;
-  }
-  .etf-item .desc {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    letter-spacing: -0.01em;
-  }
+.stat-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 0px 0px 1px var(--border);
+  transition: box-shadow 0.15s ease;
+}
 
-  /* Advice Card */
-  .advice-card {
-    background: var(--card-bg);
-    box-shadow: var(--border);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .advice-card .status {
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-  .advice-card .action {
-    font-family: 'Geist Mono', monospace;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-  }
-  .advice-card p {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    letter-spacing: -0.01em;
-  }
+.stat-card:active {
+  box-shadow: 0px 0px 0px 1px var(--fg-secondary);
+}
 
-  /* Holdings Table */
-  .holdings-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .holdings-table th {
-    text-align: left;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    padding: 8px 6px 8px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .holdings-table th:last-child { text-align: right; padding-right: 0; }
-  .holdings-table td {
-    padding: 10px 6px 10px 0;
-    font-size: 13px;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--line);
-  }
-  .holdings-table td:last-child {
-    text-align: right;
-    padding-right: 0;
-    font-family: 'Geist Mono', monospace;
-  }
-  .holdings-table tr:last-child td { border-bottom: none; }
-  .holdings-table .asset-name {
-    font-weight: 500;
-  }
-  .holdings-table .asset-code {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-  .holdings-table .pct {
-    color: var(--text-tertiary);
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-  }
+.stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
 
-  /* Knowledge */
-  .knowledge-box {
-    background: var(--card-bg);
-    box-shadow: var(--border);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .knowledge-box .k-title {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-  }
-  .knowledge-box p {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    letter-spacing: -0.01em;
-  }
+.stat-value {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-family: 'Geist Mono', monospace;
+}
 
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-  }
-  .footer a {
-    font-size: 13px;
-    color: var(--link);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    opacity: 0.6;
-    transition: opacity 0.15s ease;
-  }
-  .footer a:hover {
-    opacity: 1;
-  }
+.stat-value.up { color: var(--red); }
+.stat-value.down { color: var(--green); }
 
-  /* Responsive */
-  @media (max-width: 400px) {
-    .container { padding: 24px 16px 40px; }
-    .header h1 { font-size: 24px; }
-    .stat-card .value { font-size: 19px; }
-    .stats-grid { gap: 8px; }
-    .stat-card { padding: 12px 10px; }
-  }
+.stat-sub {
+  font-size: 12px;
+  color: var(--fg-tertiary);
+  margin-top: 2px;
+  font-family: 'Geist Mono', monospace;
+}
+
+/* Section */
+.section {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  box-shadow: 0px 1px 0px 0px var(--border);
+}
+
+/* Content Card */
+.content-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 0px 0px 1px var(--border);
+  margin-bottom: 10px;
+  transition: box-shadow 0.15s ease;
+}
+
+.content-card:active {
+  box-shadow: 0px 0px 0px 1px var(--fg-secondary);
+}
+
+.content-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.content-card .meta {
+  font-size: 12px;
+  color: var(--fg-tertiary);
+  font-family: 'Geist Mono', monospace;
+  margin-bottom: 8px;
+}
+
+.content-card p {
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.7;
+}
+
+.content-card p + p {
+  margin-top: 8px;
+}
+
+/* Holdings Table */
+.holdings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.holdings-table th {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding: 8px 10px;
+  box-shadow: 0px 1px 0px 0px var(--border);
+}
+
+.holdings-table td {
+  font-size: 13px;
+  padding: 10px;
+  box-shadow: 0px 1px 0px 0px var(--border);
+  font-family: 'Geist Mono', monospace;
+}
+
+.holdings-table tr:last-child td {
+  box-shadow: none;
+}
+
+.holdings-table .name-col {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+}
+
+.holdings-table .pct-col {
+  color: var(--fg-tertiary);
+}
+
+.tag-hold {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  background: transparent;
+  box-shadow: 0px 0px 0px 1px var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: 'Geist Mono', monospace;
+}
+
+/* Knowledge section */
+.knowledge-box {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 0px 0px 1px var(--border);
+}
+
+.knowledge-box .kb-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.knowledge-box p {
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.7;
+}
+
+/* Back link */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 13px;
+  color: var(--fg-muted);
+  text-decoration: none;
+  box-shadow: 0px -1px 0px 0px var(--border);
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--fg);
+}
+
+/* Advise callout */
+.advise-line {
+  font-size: 13px;
+  color: var(--fg-secondary);
+  line-height: 1.7;
+}
+
+/* Market recap structure */
+.recap-item {
+  margin-bottom: 10px;
+}
+
+.recap-item:last-child {
+  margin-bottom: 0;
+}
+
+.recap-tag {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  font-family: 'Geist Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
+}
 </style>
 </head>
 <body>
@@ -311,133 +295,141 @@
 
   <!-- Header -->
   <div class="header">
-    <h1>Portfolio </h1>
-    <span class="date">2026-06-29</span>
+    <h1>Portfolio</h1>
+    <span class="header-date">2026.06.30</span>
   </div>
 
   <!-- Stats Grid -->
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="label">Net Asset Value</div>
-      <div class="value">10,332</div>
-      <div class="sub">CNY</div>
+      <div class="stat-label">Net Asset Value</div>
+      <div class="stat-value">10,440</div>
+      <div class="stat-sub">CNY</div>
     </div>
     <div class="stat-card">
-      <div class="label">Total Return</div>
-      <div class="value positive">+332</div>
-      <div class="sub positive">+3.32%</div>
+      <div class="stat-label">Cumulative P&L</div>
+      <div class="stat-value up">+440</div>
+      <div class="stat-sub">+4.40%</div>
     </div>
     <div class="stat-card">
-      <div class="label">Daily Change</div>
-      <div class="value positive">+72</div>
-      <div class="sub positive">+0.70%</div>
+      <div class="stat-label">Daily Change</div>
+      <div class="stat-value up">+108</div>
+      <div class="stat-sub">+1.05%</div>
     </div>
     <div class="stat-card">
-      <div class="label">Days Active</div>
-      <div class="value">7</div>
-      <div class="sub">since 2026-06-23</div>
+      <div class="stat-label">Days Active</div>
+      <div class="stat-value">8</div>
+      <div class="stat-sub">since 2026.06.22</div>
     </div>
   </div>
 
-  <!-- Section A: 技能市数甌 -->
+  <!-- Section A: 今日市场复盘 -->
   <div class="section">
-    <div class="section-title">Market Review</div>
-    <div class="review-item">
-      <div class="tag">Macro</div>
-      <p>月29日A股三大指数全线收红，沪指+1.16%斥4143点，深成指+0.19%，创业板+0.54%，科创50暴涨4.61%再创历史新高站上2100点。</p>
-    </div>
-    <div class="review-item">
-      <div class="tag">Sector</div>
-      <p>半导体芯片板块全线爆发领涨，电子化学品、白色家电涨幅居前。</p>
-    </div>
-    <div class="review-item">
-      <div class="tag">Capital Flow</div>
-      <p>资金合现明显的高低切换特征：光通信板块等对逍去在冷开服务需求。下后半导体材料、医药、核聚变、消费零售等低位领类的最天明组无意结完电子化学品板块。发表户外切换放可行结合，反弹招晚。后可可是加仓不变的最体时，显示市场服务需求，先无意压制。可可是可是可是可是可是可是可是可是添加
-      </p>
+    <div class="section-title">Market Recap</div>
+    <div class="content-card">
+      <div class="recap-item">
+        <div class="recap-tag">Macro</div>
+        <p>6月30日为2026年半年末最后一个交易日，三大指数集体收涨。上证+0.50%，深证+2.48%，创业板+2.99%，科创50大涨近4%创历史新高。全天成交3.29万亿，超3000只个股上涨。隔夜美股纳指+2.07%，费城半导体大涨，外围情绪偏暖。</p>
+      </div>
+      <div class="recap-item">
+        <div class="recap-tag">Sector</div>
+        <p>半导体芯片概念股全线爆发，通信设备、电子元器件、航天军工、互联网、发电设备涨幅居前。资金极致聚焦科技方向，非科技板块（工程建筑、券商、贵金属）表现疲弱。结构分化明显，科技vs传统板块剪刀差持续扩大。</p>
+      </div>
+      <div class="recap-item">
+        <div class="recap-tag">Capital</div>
+        <p>两市成交3.29万亿，较6月29日（3.54万亿）缩量约2500亿。科技方向ETF获持续净流入，电子板块主力净流入超227亿，通信板块净流入超109亿。半年末机构调仓力度加大，资金向高景气赛道集中。</p>
+      </div>
     </div>
   </div>
 
   <!-- Section B: ETF深度分析 -->
   <div class="section">
     <div class="section-title">ETF Analysis</div>
-    <div class="etf-item">
-      <div>
-        <span class="code">006131</span><span class="name">深频陨州3FETF</span>
-        <div class="meta">Allocation: 50% | Value: 5,166</div>
-      </div>
-      <div class="desc">权重50%为主名门定底仓。沪指今日+1.16%，沪深300序当判正小幅反弹。</div>
+
+    <div class="content-card">
+      <h3>006131 CSI 300 ETF</h3>
+      <div class="meta">Weight 50% | Value 5,218</div>
+      <p>沪深300今日随大盘走强，午间一度涨超1.1%。当前PE约11.2倍，仍处历史中低估值区间。成分股中科技权重股（半导体、电子）贡献主要涨幅，金融地产表现承压。半年末MSCI调仓影响有限，中期看多逻辑不变。</p>
     </div>
-    <div class="etf-item">
-      <div>
-        <span class="code">004348</span><span class="name">中证500ETF</span>
-        <div class="meta">Allocation: 30% | Value: 3,100</div>
-      </div>
-      <div class="desc">吗音村料、医药、拨陶等提供黑药，台不吗说近很反。</div>
+
+    <div class="content-card">
+      <h3>004348 CSI 500 ETF</h3>
+      <div class="meta">Weight 30% | Value 3,156</div>
+      <p>中证500今日表现强劲，涨幅优于沪深300。中小盘科技成长股受益于AI产业链扩散，中证500指数内半导体、通信设备及军工板块占比较高。资金面宽松预期下中小盘风格有望延续，当前PE约23倍，具备一定安全边际。</p>
     </div>
-    <div class="etf-item">
-      <div>
-        <span class="code">银华货币A</span><span class="name">货币A韺金</span>
-        <div class="meta">Allocation: 20% | Value: 2,066</div>
-      </div>
-      <div class="desc">权重20%人是王舱测虹动性缓冲，在波动加剧阶段，货币仓位有效平滑净值波动。</div>
+
+    <div class="content-card">
+      <h3>YinHua Money Market A</h3>
+      <div class="meta">Weight 20% | Value 2,066</div>
+      <p>银华货币A保持稳定收益，七日年化约1.8%-2.0%。作为组合的防御性底仓，流动性充裕。在当前科技股强势行情中，货币仓位提供再平衡弹药储备，也降低了整体波动。</p>
     </div>
   </div>
 
   <!-- Section C: 组合操作建议 -->
   <div class="section">
-    <div class="section-title">Portfolio Review</div>
-    <div class="advice-card">
-      <div class="status">Assessment</div>
-      <div class="action">HOLD — Maintain Current Allocation</div>
-      <p>当前净值10,633，累计收益&#165;633 (+6.33%)。欪PE: 10.5x，低估区藴，怡&lt;11览的最体导入。可能雦弃一个发指，不可感慾乐&大友</p>
+    <div class="section-title">Strategy & Action</div>
+    <div class="content-card">
+      <h3>Current Assessment</h3>
+      <p>组合今日预估净增+1.05%，净值升至10,440元，累计+4.40%。科技共振带动宽基指数上行，持仓整体受益。但结构分化加剧——科技与非科技板块剪刀差已达极端水平，需警惕短期过热后的技术性回调风险。</p>
+      <br>
+      <h3>Recommendations</h3>
+      <p><strong>沪深300ETF (持有):</strong> PE约11x仍为新国九条后低估区间，中期看多。若指数回踩4000点以下可加仓5%。</p>
+      <p><strong>中证500ETF (持有):</strong> 科技扩散逻辑下中小盘弹性更好，短期不宜追高，耐心持有。</p>
+      <p><strong>货币基金 (维持20%):</strong> 保留弹药以备回调加仓，当前不建议降低货币仓位。</p>
+      <p><strong>总体:</strong> 持有观望，科技热度高位警惕技术面回调。关注7月政治局会议定调和半年报业绩预告。</p>
     </div>
   </div>
 
-  <!-- Section D: 持仓明细 -->
+  <!-- Holdings -->
   <div class="section">
     <div class="section-title">Holdings</div>
-    <table class="holdings-table">
-      <thead>
-        <tr>
-          <th>Asset</th>
-          <th>Alloc</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="asset-name">深频陨州3FETF</div><div class="asset-code">006131</div></td>
-          <td class="pct">50%</td>
-          <td>5000</td>
-        </tr>
-        <tr>
-          <td><div class="asset-name">中证500ETF</div><div class="asset-code">004348</div></td>
-          <td class="pct">30%</td>
-          <td>3000</td>
-        </tr>
-        <tr>
-          <td><div class="asset-name">各帍货币A</div><div class="asset-code">货币A韺金</div></td>
-          <td class="pct">20%</td>
-          <td>2000</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="content-card" style="padding: 0;">
+      <table class="holdings-table">
+        <thead>
+          <tr><th>ETF</th><th>Weight</th><th>Value</th><th>P&L</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name-col">006131 CSI 300</td>
+            <td class="pct-col">50%</td>
+            <td>5,218</td>
+            <td class="up">+52</td>
+          </tr>
+          <tr>
+            <td class="name-col">004348 CSI 500</td>
+            <td class="pct-col">30%</td>
+            <td>3,156</td>
+            <td class="up">+56</td>
+          </tr>
+          <tr>
+            <td class="name-col">YinHua Money A</td>
+            <td class="pct-col">20%</td>
+            <td>2,066</td>
+            <td class="up">-</td>
+          </tr>
+          <tr>
+            <td class="name-col" style="font-weight:600;">Total</td>
+            <td class="pct-col">100%</td>
+            <td style="font-weight:600;">10,440</td>
+            <td class="up" style="font-weight:600;">+108</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <!-- Section E: 投资知识角 -->
+  <!-- Section D: 投资知识 -->
   <div class="section">
     <div class="section-title">Knowledge</div>
     <div class="knowledge-box">
-      <div class="section-content">
-        资亦配置再峳衡策略（Rebalancing）是荷入主名组合的帐作出现。
-      </div>
+      <div class="kb-title">风格因子：动量与反转</div>
+      <p>动量因子（Momentum）指"强者恒强"——过去一段时间涨幅大的资产倾向于继续上涨，买入赢家组合可获超额收益。反转因子（Reversal）则相反——长期涨多的资产会回归均值。A股市场短期（1-3个月）动量效应显著，但中长期（12个月以上）反转效应更突出。当前科技板块已连续走强，短期动量仍在但风险积累，建议结合估值分位判断是否触发反转条件。</p>
     </div>
   </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <a href="https://alistairlendor.com">← Back to Console</a>
-  </div>
+  <!-- Back link -->
+  <a href="https://alistairlendor.com" class="back-link">&#8592; 返回控制台</a>
+
 </div>
 </body>
 </html>
